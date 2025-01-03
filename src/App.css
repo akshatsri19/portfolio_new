@@ -1,0 +1,21 @@
+.App {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+css-doodle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Push the background behind the content */
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-top: 20vh;
+}
