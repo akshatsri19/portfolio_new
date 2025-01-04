@@ -16,46 +16,44 @@ const Home = () => {
                 setDisplayedText(currentRole.slice(0, letterIndex));
                 letterIndex++;
             } else {
-                clearInterval(typingInterval); // Stop typing when the word is complete
+                clearInterval(typingInterval);
                 setTimeout(() => {
-                    setDisplayedText(""); // Clear the text before starting the next word
-                    setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length); // Move to next role
-                }, 4000); // Pause before transitioning to the next word
+                    setDisplayedText("");
+                    setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+                }, 4000);
             }
         };
 
-        const typingInterval = setInterval(typeEffect, 100); // Typing speed
-        return () => clearInterval(typingInterval); // Cleanup on unmount
+        const typingInterval = setInterval(typeEffect, 100);
+        return () => clearInterval(typingInterval);
     }, [currentRoleIndex]);
 
     return (
         <section className="text-white flex items-center">
             <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center mt-28">
                 {/* Left Section */}
-                <div className="max-w-xl md:w-1/2">
+                <div className="max-w-xl md:w-1/2 text-center md:text-left">
                     <p className="text-customBlue text-lg font-bold uppercase mb-6">Hello!</p>
-                    <h1 className="text-5xl md:text-6xl font-bold leading-tight font-phosphate">
-                        I'm <span className="text-customBlue ">Akshat Srivastava</span>
+                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                        I'm <span className="text-customBlue">Akshat Srivastava</span>
                     </h1>
-                    <p className="text-2xl font-semibold mt-5 h-10">
-                        {displayedText}
-                    </p>
-                    <p className="text-3xl font-semibold mt-10 mb-5 font-comic">A Problem Solver</p>
+                    <p className="text-xl md:text-2xl font-semibold mt-5 h-10">{displayedText}</p>
+                    <p className="text-2xl md:text-3xl font-semibold mt-10 mb-5">A Problem Solver</p>
                     <Link
-    to="projects"
-    smooth={true}
-    duration={500}
-    className="mt-40 bg-transparent border-2 border-white text-white py-2 px-6 rounded-full hover:bg-customBlue hover:text-black transition duration-300 cursor-pointer"
->
-    My Works
-</Link>
+                        to="projects"
+                        smooth={true}
+                        duration={500}
+                        className="mt-10 bg-transparent border-2 border-white text-white py-2 px-6 rounded-full hover:bg-customBlue hover:text-black transition duration-300 cursor-pointer"
+                    >
+                        My Works
+                    </Link>
                 </div>
                 {/* Right Section */}
                 <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
-                    <img 
+                    <img
                         src={me}
-                        alt="Akshat Srivastava" 
-                        className="rounded-lg shadow-lg"
+                        alt="Akshat Srivastava"
+                        className="rounded-lg shadow-lg max-w-full h-auto"
                     />
                 </div>
             </div>

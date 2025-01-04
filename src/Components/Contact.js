@@ -27,7 +27,7 @@ const Contact = () => {
     };
 
     const { ref: sectionRef, inView: sectionInView } = useInView({
-        threshold: 0.3, // Trigger when 20% of the section is visible
+        threshold: 0.3, // Trigger when 30% of the section is visible
         triggerOnce: true, // Animate only once
     });
 
@@ -66,54 +66,51 @@ const Contact = () => {
 
             {/* Contact Details */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-20">
-            {[
-    {
-        icon: <FaMapMarkerAlt className="text-customBlue text-2xl" />,
-        title: "ADDRESS",
-        content: "Toronto, Canada",
-    },
-    {
-        icon: <FaPhoneAlt className="text-customBlue text-2xl" />,
-        title: "CONTACT NUMBER",
-        content: "+1(289)-623-0427",
-    },
-    {
-        icon: <FaEnvelope className="text-customBlue text-2xl" />,
-        title: "EMAIL ADDRESS",
-        content: "akshat.sri19@gmail.com",
-    },
-    {
-        icon: (
-            <FaFileAlt className="text-customBlue text-2xl" />
-        ),
-        title: "DOWNLOAD RESUME",
-        content: (
-            <a
-                href="https://drive.google.com/file/d/1q-GhnwagFFJPLAxdtPfIv6TbYj4PBqFJ/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-customBlue hover:underline"
-            >
-                resumelink
-            </a>
-        ),
-    },
-].map((item, index) => (
-    <motion.div
-        key={index}
-        variants={itemVariants}
-        initial="hidden"
-        animate={sectionInView ? "visible" : "hidden"}
-        className="text-center"
-    >
-        <div className="bg-customGray rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-            {item.icon}
-        </div>
-        <h3 className="text-lg font-bold font-comic">{item.title}</h3>
-        <p className="text-gray-400 mt-2">{item.content}</p>
-    </motion.div>
-))}
-
+                {[
+                    {
+                        icon: <FaMapMarkerAlt className="text-customBlue text-2xl" />,
+                        title: "ADDRESS",
+                        content: "Toronto, Canada",
+                    },
+                    {
+                        icon: <FaPhoneAlt className="text-customBlue text-2xl" />,
+                        title: "CONTACT NUMBER",
+                        content: "+1(289)-623-0427",
+                    },
+                    {
+                        icon: <FaEnvelope className="text-customBlue text-2xl" />,
+                        title: "EMAIL ADDRESS",
+                        content: "akshat.sri19@gmail.com",
+                    },
+                    {
+                        icon: <FaFileAlt className="text-customBlue text-2xl" />,
+                        title: "DOWNLOAD RESUME",
+                        content: (
+                            <a
+                                href="https://drive.google.com/file/d/1q-GhnwagFFJPLAxdtPfIv6TbYj4PBqFJ/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-customBlue hover:underline"
+                            >
+                                resumelink
+                            </a>
+                        ),
+                    },
+                ].map((item, index) => (
+                    <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        initial="hidden"
+                        animate={sectionInView ? "visible" : "hidden"}
+                        className="text-center"
+                    >
+                        <div className="bg-customGray rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            {item.icon}
+                        </div>
+                        <h3 className="text-lg font-bold font-comic">{item.title}</h3>
+                        <p className="text-gray-400 mt-2">{item.content}</p>
+                    </motion.div>
+                ))}
             </div>
 
             <h3 className="text-center text-gray-400 text-sm mt-60">
@@ -123,11 +120,12 @@ const Contact = () => {
             {/* Scroll to Top Button */}
             {showButton && (
                 <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-10 right-10 bg-orange-500 text-white rounded-full px-5 py-3 shadow-lg hover:bg-customBlue transition duration-300"
-                >
-                    ↑
-                </button>
+                onClick={scrollToTop}
+                className="fixed bottom-10 right-10 bg-orange-500 text-white rounded-full px-5 py-3 shadow-lg hover:bg-customBlue transition duration-300 z-50"
+                aria-label="Scroll to top"
+            >
+                ↑
+            </button>
             )}
         </section>
     );

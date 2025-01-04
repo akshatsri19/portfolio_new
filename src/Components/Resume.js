@@ -54,58 +54,51 @@ const Resume = () => {
                     Experience
                 </h3>
 
-                <div className="flex flex-row gap-6">
-                    <motion.div
-                        custom="left"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-80 h-54"
-                    >
-                        <h4 className="text-2xl font-bold text-white mb-2">🧑‍💻 Software Developer</h4>
-                        <p className="text-customBlue font-bold text-xl mb-2">May 2024 - Dec 2024</p>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">Co-op</p>
-                        <p className="text-white mb-2">
-                            <strong>Aurkei</strong>
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        custom="top"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-80 h-54"
-                    >
-                        <h4 className="text-2xl font-bold text-white mb-2">🧑‍💻 Senior System Engineer</h4>
-                        <p className="text-customBlue font-bold text-xl mb-2">Apr 2022 - Oct 2022</p>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">Fulltime</p>
-                        <p className="text-white mb-2">
-                            <strong>Infosys</strong>
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        custom="top"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-80 h-54"
-                    >
-                        <h4 className="text-2xl font-bold text-white mb-2">🧑‍💻 System Engineer</h4>
-                        <p className="text-customBlue font-bold text-xl mb-2">Jan 2021 - Mar 2022</p>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">Fulltime</p>
-                        <p className="text-white mb-2">
-                            <strong>Infosys</strong>
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        custom="right"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-80 h-54"
-                    >
-                        <h4 className="text-2xl font-bold text-white mb-2">🧑‍💻 Intern</h4>
-                        <p className="text-customBlue font-bold text-xl mb-2">Oct 2020 - Jan 2021</p>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">Fulltime</p>
-                        <p className="text-white mb-2">
-                            <strong>Infosys</strong>
-                        </p>
-                    </motion.div>
+                <div className="flex flex-wrap gap-6 justify-center">
+                    {[
+                        {
+                            role: "Software Developer",
+                            period: "May 2024 - Dec 2024",
+                            type: "Co-op",
+                            company: "Aurkei",
+                            direction: "top",
+                        },
+                        {
+                            role: "Senior System Engineer",
+                            period: "Apr 2022 - Oct 2022",
+                            type: "Fulltime",
+                            company: "Infosys",
+                            direction: "top",
+                        },
+                        {
+                            role: "System Engineer",
+                            period: "Jan 2021 - Mar 2022",
+                            type: "Fulltime",
+                            company: "Infosys",
+                            direction: "top",
+                        },
+                        {
+                            role: "Intern",
+                            period: "Oct 2020 - Jan 2021",
+                            type: "Fulltime",
+                            company: "Infosys",
+                            direction: "top",
+                        },
+                    ].map((item, index) => (
+                        <motion.div
+                            key={index}
+                            custom={item.direction}
+                            variants={itemVariants}
+                            className="rounded-lg p-6 shadow-lg w-full md:w-80"
+                        >
+                            <h4 className="text-2xl font-bold text-white mb-2">🧑‍💻 {item.role}</h4>
+                            <p className="text-customBlue font-bold text-xl mb-2">{item.period}</p>
+                            <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">{item.type}</p>
+                            <p className="text-white mb-2">
+                                <strong>{item.company}</strong>
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
             </motion.div>
 
@@ -120,31 +113,39 @@ const Resume = () => {
                     Education
                 </h3>
                 <div className="flex flex-wrap gap-6 justify-center">
-                    <motion.div
-                        custom="bottom"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-96 h-64"
-                    >
-                        <p className="text-customBlue font-bold text-xl mb-2">2022-2024</p>
-                        <h4 className="text-2xl font-bold text-white mb-2">🎓 Post Graduate Diploma</h4>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">
-                            Blockchain / Mobile application and strategy
-                        </p>
-                        <p className="text-white font-bold mb-2">George Brown College</p>
-                        <p className="text-gray-400">Grade: Dean's Honour List</p>
-                    </motion.div>
-
-                    <motion.div
-                        custom="bottom"
-                        variants={itemVariants}
-                        className="rounded-lg p-6 shadow-lg w-96 h-64"
-                    >
-                        <p className="text-customBlue font-bold text-xl mb-2">2016-2020</p>
-                        <h4 className="text-2xl font-bold text-white mb-2">🎓 Bachelor of Technology</h4>
-                        <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">Computer Science</p>
-                        <p className="text-white font-bold mb-2">DIT University</p>
-                        <p className="text-gray-400">Grade: Class Distinction</p>
-                    </motion.div>
+                    {[
+                        {
+                            year: "2022-2024",
+                            degree: "Post Graduate Diploma",
+                            specialization: "Blockchain / Mobile Application and Strategy",
+                            institution: "George Brown College",
+                            grade: "Dean's Honour List",
+                            direction: "bottom",
+                        },
+                        {
+                            year: "2016-2020",
+                            degree: "Bachelor of Technology",
+                            specialization: "Computer Science",
+                            institution: "DIT University",
+                            grade: "Class Distinction",
+                            direction: "bottom",
+                        },
+                    ].map((item, index) => (
+                        <motion.div
+                            key={index}
+                            custom={item.direction}
+                            variants={itemVariants}
+                            className="rounded-lg p-6 shadow-lg w-full md:w-96"
+                        >
+                            <p className="text-customBlue font-bold text-xl mb-2">{item.year}</p>
+                            <h4 className="text-2xl font-bold text-white mb-2">🎓 {item.degree}</h4>
+                            <p className="text-gray-400 text-sm uppercase mb-4 tracking-widest">
+                                {item.specialization}
+                            </p>
+                            <p className="text-white font-bold mb-2">{item.institution}</p>
+                            <p className="text-gray-400">{item.grade}</p>
+                        </motion.div>
+                    ))}
                 </div>
             </motion.div>
         </section>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import image from "../assets/Image.png";
@@ -17,6 +17,7 @@ const Projects = () => {
 
     return (
         <>
+            {/* Projects Section */}
             <section className="projects-section bg-black text-white py-16 px-6 md:px-12 lg:px-20">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -37,7 +38,7 @@ const Projects = () => {
                 </div>
 
                 {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {[
                         {
                             title: "TrustBlu",
@@ -72,14 +73,14 @@ const Projects = () => {
                                         <iframe
                                             src={`https://www.youtube.com/embed/${project.youtube}?mute=1`}
                                             title={project.title}
-                                            className="rounded-lg mb-4 h-60 w-full object-cover"
+                                            className="rounded-lg mb-4 aspect-w-16 aspect-h-9 w-full"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
                                         ></iframe>
                                     </div>
                                 </a>
                             )}
-                            <h3 className="text-xl font-bold mb-2 text-white mt-10 tracking-widest">
+                            <h3 className="text-xl font-bold mb-2 text-white mt-4 tracking-widest">
                                 {project.title}
                             </h3>
                             <p className="text-gray-400 text-sm text-justify">
@@ -92,7 +93,7 @@ const Projects = () => {
 
             {/* Additional Section with Background Image */}
             <section
-                className="bg-cover mt-20 py-16 px-6 md:px-12 lg:px-20"
+                className="bg-cover mt-20 py-16 px-6 md:px-12 lg:px-20" 
                 style={{
                     backgroundImage: `url(${image})`,
                 }}
@@ -100,13 +101,13 @@ const Projects = () => {
                 <div className="text-center text-white">
                     <div
                         ref={ref}
-                        className="flex justify-center transform -translate-y-24 mb-16"
+                        className="flex justify-center transform md:-translate-y-24 mb-16"
                     >
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {counterData.map((counter, index) => (
                                 <div
                                     key={index}
-                                    className="bg-customGray rounded-lg py-5 w-64 text-center mx-auto"
+                                    className="bg-customGray rounded-lg py-5 w-full max-w-xs text-center mx-auto"
                                 >
                                     <h3 className="text-4xl font-bold text-customBlue">
                                         {inView && (
