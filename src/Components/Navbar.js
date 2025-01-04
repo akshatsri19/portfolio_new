@@ -30,9 +30,11 @@ const Navbar = () => {
     return (
         <motion.nav
             initial={{ y: -100 }}
-            animate={{ y: showNavbar ? 0 : -100 }}
+            animate={{ y: showNavbar || isMobileMenuOpen ? 0 : -100 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="fixed top-0 w-full bg-black z-10 shadow-md"
+            className={`fixed top-0 w-full z-20 bg-black shadow-md transition-all duration-300 ${
+                isMobileMenuOpen ? 'bg-black' : ''
+            }`}
         >
             <div className="container flex justify-between items-center py-4 px-6">
                 {/* Logo Section */}
