@@ -34,7 +34,7 @@ const Home = () => {
                 {/* Left Section */}
                 <div className="max-w-xl md:w-1/2 text-center md:text-left">
                     <p className="text-customBlue text-lg font-bold uppercase mb-6">Hello!</p>
-                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-bold leading-tight font-phosphate">
                         I'm <span className="text-customBlue">Akshat Srivastava</span>
                     </h1>
                     <p className="text-xl md:text-2xl font-semibold mt-5 h-10">{displayedText}</p>
