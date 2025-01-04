@@ -12,7 +12,7 @@ const About = () => {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.3 } // Trigger animation when 30% of the section is visible
+            { threshold: 1, triggerOnce: false} // Trigger animation when 30% of the section is visible
         );
 
         if (progressBarRef.current) {
